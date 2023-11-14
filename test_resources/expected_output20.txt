@@ -1,1 +1,1 @@
-Syntax analysis failed.
+Syntax analysis failed

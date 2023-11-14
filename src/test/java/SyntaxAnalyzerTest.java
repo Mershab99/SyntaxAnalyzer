@@ -15,10 +15,6 @@ public class SyntaxAnalyzerTest {
     @ParameterizedTest
     @ValueSource(ints = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20})
     public void analyzerTest(int input) throws Exception {
-        testAnalyzer(input);
-    }
-
-    private void testAnalyzer(int input) throws Exception {
         String inputFilename = TEST_INPUT_FILE_LOCATION + "input" + (input == 1 ? "" : input) + ".txt";
         String expectedOutputFilename = TEST_INPUT_FILE_LOCATION + "expected_output" + (input == 1 ? "" : input) + ".txt";
 
@@ -37,7 +33,6 @@ public class SyntaxAnalyzerTest {
             actualOutput = e.getMessage();
         }
 
-        assertEquals(expectedOutput, actualOutput, "Failed for input" + input + ".txt");
-    }
+        assertEquals(expectedOutput, actualOutput, "Failed for input" + input + ".txt");    }
 }
 
