@@ -6,8 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="9eb40881-ba19-4f86-b9a1-a5fbac6839e2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/mershab/LexicalAnalyzer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/mershab/LexicalAnalyzer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/mershab/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/mershab/SyntaxAnalyzer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/mershab/SyntaxAnalyzer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_resources/expected_output12.txt" beforeDir="false" afterPath="$PROJECT_DIR$/test_resources/expected_output12.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_resources/expected_output13.txt" beforeDir="false" afterPath="$PROJECT_DIR$/test_resources/expected_output13.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_resources/expected_output9.txt" beforeDir="false" afterPath="$PROJECT_DIR$/test_resources/expected_output9.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,7 +69,7 @@
       <recent name="org.mershab" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.SyntaxAnalyzerTest.analyzerTest.[1] 1">
+  <component name="RunManager" selected="JUnit.SyntaxAnalyzerTest">
     <configuration name="SyntaxAnalyzerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="SyntaxAnalyzer" />
       <option name="PACKAGE_NAME" value="" />
@@ -96,22 +101,38 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SyntaxAnalyzerTest.testAnalyzer" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="SyntaxAnalyzerTest.analyzerTest.[2] 2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="SyntaxAnalyzer" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="SyntaxAnalyzerTest" />
-      <option name="METHOD_NAME" value="testAnalyzer" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="METHOD_NAME" value="analyzerTest(int)" />
+      <option name="TEST_OBJECT" value="uniqueId" />
+      <uniqueIds>
+        <uniqueId value="[engine:junit-jupiter]/[class:SyntaxAnalyzerTest]/[test-template:analyzerTest(int)]/[test-template-invocation:#2]" />
+      </uniqueIds>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SyntaxAnalyzerTest.analyzerTest.[4] 4" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SyntaxAnalyzer" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="SyntaxAnalyzerTest" />
+      <option name="TEST_OBJECT" value="uniqueId" />
+      <uniqueIds>
+        <uniqueId value="[engine:junit-jupiter]/[class:SyntaxAnalyzerTest]/[test-template:analyzerTest(int)]/[test-template-invocation:#4]" />
+      </uniqueIds>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.SyntaxAnalyzerTest.analyzerTest.[1] 1" />
         <item itemvalue="JUnit.SyntaxAnalyzerTest" />
+        <item itemvalue="JUnit.SyntaxAnalyzerTest.analyzerTest.[2] 2" />
         <item itemvalue="JUnit.SyntaxAnalyzerTest.analyzerTest" />
-        <item itemvalue="JUnit.SyntaxAnalyzerTest.testAnalyzer" />
+        <item itemvalue="JUnit.SyntaxAnalyzerTest.analyzerTest.[4] 4" />
+        <item itemvalue="JUnit.SyntaxAnalyzerTest.analyzerTest.[1] 1" />
       </list>
     </recent_temporary>
   </component>
@@ -124,7 +145,7 @@
       <option name="presentableId" value="Default" />
       <updated>1698498149732</updated>
       <workItem from="1698498150758" duration="13434000" />
-      <workItem from="1699918180101" duration="10484000" />
+      <workItem from="1699918180101" duration="15632000" />
     </task>
     <servers />
   </component>
@@ -147,8 +168,8 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/mershab/SyntaxAnalyzer.java</url>
-          <line>108</line>
-          <option name="timeStamp" value="66" />
+          <line>155</line>
+          <option name="timeStamp" value="87" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

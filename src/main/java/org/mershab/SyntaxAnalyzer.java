@@ -79,7 +79,6 @@ public class SyntaxAnalyzer {
 
                 case TokenTypes.RIGHT_BRACE:
                     checkStack(bracketStack, TokenTypes.LEFT_BRACE, "Unmatched closing }");
-                    expectSemicolon = true;
                     break;
 
                 case TokenTypes.LEFT_PAREN:
@@ -89,7 +88,6 @@ public class SyntaxAnalyzer {
 
                 case TokenTypes.RIGHT_PAREN:
                     checkStack(parenStack, TokenTypes.LEFT_PAREN, "Unmatched closing )");
-                    expectSemicolon = true;
                     break;
 
                 case TokenTypes.STR_LIT:
@@ -97,6 +95,28 @@ public class SyntaxAnalyzer {
                     break;
 
                 case TokenTypes.SEMICOLON:
+                    expectSemicolon = false;
+                    break;
+
+                // Tokens that typically conclude a statement and expect a semicolon afterwards
+                case TokenTypes.ASSIGN_OP:
+                case TokenTypes.ADD_OP:
+                case TokenTypes.SUB_OP:
+                case TokenTypes.MULT_OP:
+                case TokenTypes.DIV_OP:
+                case TokenTypes.INT_LIT:
+                case TokenTypes.FLOAT_LIT:
+                    expectSemicolon = true;
+                    break;
+
+                // Control structures and other cases that reset the expectation for a semicolon
+                case TokenTypes.COMMENT:
+                case TokenTypes.EQUALS:
+                case TokenTypes.NOT_EQUALS:
+                case TokenTypes.IF:
+                case TokenTypes.ELSE:
+                case TokenTypes.FOR:
+                case TokenTypes.WHILE:
                     expectSemicolon = false;
                     break;
 
@@ -131,7 +151,6 @@ public class SyntaxAnalyzer {
 
         return "Syntax analysis succeed";
     }
-
     private void checkStack(Stack<Integer> stack, int matchingToken, String errorMessage) throws SyntaxException {
         if (stack.isEmpty() || stack.peek() != matchingToken) {
             throw new SyntaxException(errorMessage + " at line " + lineNumbers.get(currentTokenIndex));
@@ -142,7 +161,7 @@ public class SyntaxAnalyzer {
 
     public static class SyntaxException extends RuntimeException {
         public SyntaxException(String message) {
-            super("Syntax analysis failed.\n" + "syntax_analyzer_error - " + message);
+            super("Syntax analysis failed\n" + "syntax_analyzer_error - " + message);
         }
     }
 

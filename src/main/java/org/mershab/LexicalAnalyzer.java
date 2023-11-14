@@ -5,8 +5,6 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
-import java.util.Objects;
 
 public class LexicalAnalyzer {
     /* Global declarations */
@@ -59,6 +57,7 @@ public class LexicalAnalyzer {
     private static final int COMMENT = 40;
     private static final int QUESTION_MARK = 41;
     private static final int COLON = 42;
+
     public void processFile(FileReader inputFile) {
         charClass = 0;
         /* Open the input data file and process its contents */
@@ -78,6 +77,7 @@ public class LexicalAnalyzer {
     public List<Integer> getTokenList() {
         return tokenList;
     }
+
     public List<Integer> getTokenLineNumberList() {
         return tokenLineNumberList;
     }
@@ -202,7 +202,7 @@ public class LexicalAnalyzer {
                     }
                 }
                 addChar(); // Include the closing double quote
-                
+
                 nextToken = STR_LIT;
                 break;
             default:
