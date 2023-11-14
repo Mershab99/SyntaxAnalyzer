@@ -3,10 +3,18 @@ package org.mershab;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
 public class LexicalAnalyzer {
     /* Global declarations */
     /* Variables */
+
+    public static List<Integer> tokenList;
+    public static List<Integer> tokenLineNumberList;
+    private static int currentLineNum = 1;
     private static int charClass;
     private static StringBuilder lexeme = new StringBuilder(100);
     private static StringBuilder error = new StringBuilder(100);
@@ -51,22 +59,27 @@ public class LexicalAnalyzer {
     private static final int COMMENT = 40;
     private static final int QUESTION_MARK = 41;
     private static final int COLON = 42;
-
-    public static void main(String[] args) {
+    public void processFile(FileReader inputFile) {
+        charClass = 0;
         /* Open the input data file and process its contents */
         try {
-            in_fp = new BufferedReader(new FileReader("front.in"));
+            in_fp = new BufferedReader(inputFile);
+            tokenList = new ArrayList<>();
+            tokenLineNumberList = new ArrayList<>();
             getChar();
             do {
                 lex();
             } while (nextToken != EOF);
         } catch (IOException e) {
-            System.err.println("ERROR - cannot open front.in");
+            System.err.println("ERROR - cannot open file");
         }
     }
 
-    private static void processFile(FileReader inputFile) {
-
+    public List<Integer> getTokenList() {
+        return tokenList;
+    }
+    public List<Integer> getTokenLineNumberList() {
+        return tokenLineNumberList;
     }
 
     /* lookup - a function to lookup operators and keywords and return the token */
@@ -183,6 +196,10 @@ public class LexicalAnalyzer {
                 while (nextChar != '\"') {
                     addChar();
                     getChar();
+                    currentLineNum++;
+                    if (charClass == EOF) {
+                        break;
+                    }
                 }
                 addChar(); // Include the closing double quote
                 
@@ -243,12 +260,16 @@ public class LexicalAnalyzer {
         } else {
             charClass = EOF;
         }
+
     }
 
     /* getNonBlank - a function to call getChar until it returns a non-whitespace character */
     private static void getNonBlank() throws IOException {
-        while (Character.isWhitespace(nextChar))
+        while (Character.isWhitespace(nextChar)) {
             getChar();
+            if (charClass == EOF)
+                break;
+        }
     }
 
     /* lex - a simple lexical analyzer for arithmetic expressions */
@@ -329,5 +350,7 @@ public class LexicalAnalyzer {
         /* End of switch */
         System.out.printf("Next token is: %d, Next lexeme is %s", nextToken, lexeme);
         System.out.printf("\t%s\n", error);
+        tokenList.add(nextToken);
+        tokenLineNumberList.add(currentLineNum);
     }
 }
